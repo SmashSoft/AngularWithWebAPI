@@ -1,0 +1,47 @@
+﻿<div class="container">
+
+    <!--Model driven forms-->
+    <div class="form-control-inline">
+        <h2> Prayer House List (MDF)</h2>
+        <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label>Prayer House Name</label>
+                <input type="text" #refName class="form-control" formControlName="prayerHouseName" />
+                <!--<div *ngIf="userForm.controls['prayerHouseName'].hasError('required')" class="alert alert-danger">
+                    Please enter a Name
+                </div>
+                <div *ngIf="userForm.controls['prayerHouseName'].hasError('minlength')" class="alert alert-danger">
+                    Please enter min 4 character
+                </div>-->
+            </div>
+            <div class="form-group">
+                <label>Category (Temple/Church/Mosque)</label>
+                <input type="text" class="form-control" formControlName="prayerHouseCategory" />
+            </div>
+            
+                <div class="form-group">
+                    <label>Place</label>
+                    <input type="text" class="form-control" formControlName="prayerHousePlace" />
+                </div>
+                <div class="form-group">
+                    <label>City</label>
+                    <input type="text" class="form-control" formControlName="prayerHouseCity" />
+                </div>
+                <div class="form-group">
+                    <label>State</label>
+                    <input type="text" class="form-control" formControlName="prayerHouseState" />
+                </div>
+                <div class="form-group">
+                    <label>Zip Code</label>
+                    <input type="text" class="form-control" formControlName="prayerHouseZipCode" />
+                    <div *ngIf="userForm.controls['prayerHouseZipCode'].hasError('pattern')" class="alert alert-danger">
+                        please enter 6 digit code
+                    </div>
+                </div>
+            
+            <button type="button" [disabled]="!userForm.valid" class="btn btn-primary btn-default" title="Submit">Add</button>
+
+        </form>
+    </div>
+
+</div>
