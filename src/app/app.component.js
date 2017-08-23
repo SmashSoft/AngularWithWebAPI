@@ -12,21 +12,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var prayerhouse_service_1 = require("./prayerhouse/prayerhouse.service");
 var forms_1 = require("@angular/forms");
-//Template driven forms
-//@Component({
-//    selector: 'my-app',
-//    templateUrl: 'app/app.component.html',
-//    //providers: [PrayerHouseService],
-//    styles: [`input.ng-invalid{border-left:5px solid red;} input.ng-valid{border-left:5px solid green;}` ]
-//})
-//export class AppComponent  {
-//    MyName = "Angular";    
-//    onSubmit(value: any) {
-//        console.log(value);
-//    }
-//}
-/*Model Driven forms*/
-//import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 var AppComponent = (function () {
     function AppComponent(_formBuilder, _service) {
         this._formBuilder = _formBuilder;
@@ -42,12 +27,10 @@ var AppComponent = (function () {
             prayerHouseZipCode: [null, [forms_1.Validators.required, forms_1.Validators.pattern('^[1-9][0-9]{5}$')]]
         });
     };
-    AppComponent.prototype.onSubmit = function () {
-        console.log(this.userForm.value);
-        //if (isValid) {
-        //this._service.addPrayerHouse(this._objPrayerHouse).subscribe(z => console.log('saved ${JSON.stringify(this._objPrayerHouse)}'));
-        // }
-        //else
+    AppComponent.prototype.onSubmit = function (model, isValid) {
+        console.log(model, isValid);
+        this._objPrayerHouse = model;
+        this._service.addPrayerHouse(this._objPrayerHouse).subscribe(function (z) { return console.log('saved ${JSON.stringify(this._objPrayerHouse)}'); });
     };
     return AppComponent;
 }());

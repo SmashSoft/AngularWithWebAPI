@@ -23,9 +23,10 @@ export class PrayerHouseService
         
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
-       
-       
-        return this._http.post(`${this._url}/Post`, JSON.stringify( prayerHouse ), options)
+
+        console.log('calling service');
+        console.log(JSON.stringify(prayerHouse));
+        return this._http.post(`${this._url}/Post`, JSON.stringify(prayerHouse), options)
             //.map(res => res.json().data)
             .catch(this.handleError);
            

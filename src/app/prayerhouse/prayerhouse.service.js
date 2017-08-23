@@ -25,6 +25,8 @@ var PrayerHouseService = (function () {
     PrayerHouseService.prototype.addPrayerHouse = function (prayerHouse) {
         var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
         var options = new http_1.RequestOptions({ headers: headers });
+        console.log('calling service');
+        console.log(JSON.stringify(prayerHouse));
         return this._http.post(this._url + "/Post", JSON.stringify(prayerHouse), options)
             .catch(this.handleError);
     };
